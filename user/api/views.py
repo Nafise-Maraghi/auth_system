@@ -14,18 +14,12 @@ class SignUpAPI(generics.CreateAPIView):
 
 class LogInAPI(APIView):
     def post(self, request):
-        email = request.POST["email"]
-        password = request.POST["password"]
+        email = request.data.get('email')
+        password = request.data.get('password')
         print(email)
         print(password)
-        user = authenticate(request=self.request ,email=email, password=password)
-
-        print("###############")
-        u = CustomUser.objects.get(email=email)
-        print('email: ', u.email == email)
-        print('password: ', u.password == password)
-        print('user: ', user)
-        print("###############")
+        user = authenticate(request=request, email=email, password=password)
+        print(user)
 
         if user is not None:
             login(request, user)
