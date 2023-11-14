@@ -6,5 +6,5 @@ __pycache__
 *.zip
 *.DS_Store
 db.sqlite3
-user/migrations/
+*/migrations/
 venv/

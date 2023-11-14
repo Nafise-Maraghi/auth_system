@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'user',
+    'car'
 ]
 
 MIDDLEWARE = [
@@ -139,8 +140,3 @@ AUTH_USER_MODEL = "user.CustomUser"
 #     ],
 # }
 
-
-#Authentication backends
-# AUTHENTICATION_BACKENDS = (
-#         'django.contrib.auth.backends.ModelBackend',
-#     )
