@@ -26,4 +26,5 @@ class MyProfileAPI(APIView):
     def get(self, request):
         profile = CustomUser.objects.get(pk=request.user.pk)
         serializer = ProfileSerializer(profile)
-        return Response(serializer.data)
+        response_data = {'data': serializer.data}
+        return Response(response_data)

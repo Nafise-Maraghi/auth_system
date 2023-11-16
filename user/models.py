@@ -30,6 +30,7 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(max_length=250, unique=True, null=True, blank=True)
     dalal = models.BooleanField(default=False)
     email = models.EmailField(max_length=250, unique=True)
     is_active = models.BooleanField(default=True)
@@ -38,3 +39,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
+
+
+class UsernameModel(models.Model):
+    username = models.CharField(max_length=250, unique=True)
+    started_at = models.DateTimeField(blank=True, null=True, default=None)
+    ended_at = models.DateTimeField(blank=True, null=True, default=None)
+
+    def __str__(self):
+        return self.username
