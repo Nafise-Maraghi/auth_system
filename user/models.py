@@ -48,3 +48,14 @@ class UsernameModel(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class ChangeUsernameModel(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE,blank=True, null=True)
+    username = models.CharField(max_length=250, unique=True)
+    started_at = models.DateTimeField(blank=True, null=True, default=None)
+    ended_at = models.DateTimeField(blank=True, null=True, default=None)
+
+    def str(self):
+        return self.username
+    
